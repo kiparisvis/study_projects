@@ -33,7 +33,7 @@ ifeq ($(detected_OS), Linux)
 	endif
 endif
 
-all: install run_app
+all: clean install run_app
 
 install:
 		[ -d $(BUILD_DIR) ] || mkdir -p $(BUILD_DIR)
@@ -48,6 +48,7 @@ uninstall: clean
 		rm -rf SmartCalc.tar
 
 clean:
+		rm -rf build
 		rm -rf tests/*.html tests/*.css
 		rm -f $(TESTEXEC) ../SmartCalc.tar .gitkeep .DS_Store qt_project/.qmake.stash
 		find . -name '*.gcno' -type f -delete
